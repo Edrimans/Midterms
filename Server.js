@@ -1,12 +1,11 @@
-/ server.js
-const http = require('http');
-const person = {
-name: 'Simone',
-};
-const server = http.createServer((req, res) => {
-res.writeHead(200, { 'Content-Type': 'text/plain' });
-res.end(`Hello from ${person.name}'s server!`);
+var express = require("express");
+
+var app = express();
+
+app.get("/", function(request, response){
+    response.send("Hello World!");
 });
-server.listen(3000, () => {
-console.log('Server running at http://localhost:3000');
+
+app.listen(3000, function(){
+    console.log("Server running at http://localhost:3000");
 });
